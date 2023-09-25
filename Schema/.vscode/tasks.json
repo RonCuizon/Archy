@@ -1,0 +1,91 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "archy create",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat create --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy create ( --recreate )",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat create --recreate --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy dump",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat dump",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy help",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat --help",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy preprocess",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat preprocess --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy preprocess ( --full )",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat preprocess --full --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy publish",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat publish --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy publish ( --recreate )",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat publish --recreate --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy refresh",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat refresh",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy update",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat update --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy update ( -- recreate )",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat update --recreate --file \"${file}\"",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy version latestPublished",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat version latestPublished",
+            "problemMatcher": []
+        },
+        {
+            "label": "archy version",
+            "type": "shell",
+            "command": "C:\\Archy\\archy.bat --version",
+            "problemMatcher": []
+        }
+    ]
+}

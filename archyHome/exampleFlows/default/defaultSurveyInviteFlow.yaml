@@ -1,0 +1,10 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+inboundEmail:
+  name: Default Survey Invite Flow
+  defaultLanguage: en-us
+  startUpRef: ./states/state[initialState]
+  states:
+    - state:
+        name: Initial State
+        refId: initialState

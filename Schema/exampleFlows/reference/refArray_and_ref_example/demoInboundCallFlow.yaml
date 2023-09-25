@@ -1,0 +1,27 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+inboundCall:
+  name: Demo Inbound Call
+  defaultLanguage: en-us
+  startUpRef: ./tasks/task[startingTask]
+  tasks:
+    - task:
+        name: Play 1, 2, 3, 4, 5 and disconnect
+        refId: startingTask
+        actions:
+          - playAudio:
+              name: Play 1
+              audio:
+                tts: "1"
+          - playAudio:
+              name: Play 2
+              audio:
+                tts: "2"
+          # Reference in an array that brings in Play 3 and Play 4 play audio actions
+          - refArray: ./commonLogic.yaml#/common/tasks/task[playNums3And4]/actions
+          - playAudio:
+              name: Play 5
+              audio:
+                tts: "5"
+          # Reference in an a disconnect action
+          - ref: ./commonLogic.yaml#/common/tasks/task[commonTask]/actions/disconnect[bye]

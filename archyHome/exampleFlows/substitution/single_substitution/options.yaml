@@ -1,0 +1,5 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+
+substitutions:
+  org_greeting: Howdy

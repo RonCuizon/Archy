@@ -1,0 +1,23 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+common:
+  tasks:
+    - task:
+        name: Play audio "3" then "4"
+        refId: playNums3And4
+        actions:
+          - playAudio:
+              name: Play 3
+              audio:
+                tts: "3"
+          - playAudio:
+              name: Play 4
+              audio:
+                tts: "4"
+    - task:
+        name: Task that has disconnect action
+        refId: commonTask
+        actions:
+          - disconnect:
+              refId: bye
+              name: Bye!

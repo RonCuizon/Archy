@@ -1,0 +1,27 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+inboundEmail:
+  name: Inbound Email Flow
+  defaultLanguage: en-us
+  startUpRef: ./states/state[mainState]
+  states:
+    - state:
+        name: Inbound Email State
+        refId: mainState
+        actions:
+          - decision:
+              name: Email Decision
+              condition:
+                exp: Contains(Email.Message.subject, "Help", true)
+              outputs:
+                yes:
+                  actions:
+                    - transferToAcd:
+                        name: Transfer to < enter queue name here >
+                        targetQueue:
+                          lit:
+                            name: < enter queue name here >
+                no:
+                  actions:
+                    - disconnect:
+                        name: No help, Disconnect

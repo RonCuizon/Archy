@@ -1,0 +1,29 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+inboundCall:
+  name: Internal Reference Example Flow
+  defaultLanguage: en-us
+  startUpRef: ./menus/menu[startingMenu]
+  menus:
+    - menu:
+        name: Main Menu
+        audio:
+          exp: ToAudioTTS("This is the main menu.")
+        refId: startingMenu
+        defaultChildMenuRef: /inboundCall/menus/menu[startingMenu]/choices/menuJumpToTask[menuJumpToTaskId]
+        choices:
+          - menuJumpToTask:
+              name: Menu Jump To Task
+              refId: menuJumpToTaskId
+              dtmf: digit_1
+              targetTaskRef: /inboundCall/tasks/task[jumpToMenuTaskId]
+
+  tasks:
+    - task:
+        name: Jump To Menu Task
+        refId: jumpToMenuTaskId
+        actions:
+          - jumpToMenu:
+              name: Jump To Main Menu
+              refId: jumpToMainMenuId
+              targetMenuRef: ../../../menus/menu[startingMenu]

@@ -1,0 +1,13 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+secureCall:
+  name: Default Secure Call Flow
+  defaultLanguage: en-us
+  startUpRef: ./tasks/task[startingTask]
+  tasks:
+    - task:
+        name: Task
+        refId: startingTask
+        actions:
+          - returnToAgent:
+              name: Return To Agent

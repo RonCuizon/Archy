@@ -1,0 +1,9 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+inqueueCall:
+  name: Default InQueue Call Flow
+  defaultLanguage: en-us
+  startUpTaskActions:
+    - holdMusic:
+        prompt:
+          exp: Flow.HoldPrompt

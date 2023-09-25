@@ -1,0 +1,46 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+
+# This is an example of the different ways to reference to other parts of the flow.
+# The 'Reference Examples' menu demonstrates different ways to do this.
+inboundCall:
+  name: Advanced Internal Reference Example Flow
+  defaultLanguage: en-us
+  initialGreeting:
+    tts: Hello, this is the initial greeting.
+  startUpRef: ./menus/menu[mainMenu]
+  menus:
+    - menu:
+        name: Main Menu
+        refId: mainMenu
+        audio:
+          tts: Press 1 to go to the Reference examples menu, or press 9 to disconnect.
+        choices:
+          - menuJumpToMenu:
+              name: Go to Reference Examples menu
+              dtmf: digit_1
+              targetMenuRef: /inboundCall/menus/menu[referenceTopMenu]
+          - menuDisconnect:
+              dtmf: digit_9
+    - menu:
+        # menu choices that show using references
+        name: Reference Examples
+        refId: referenceTopMenu
+        audio:
+          tts: This is the reference examples menu.
+        choices:
+          # relative reference
+          - menuJumpToMenu:
+              dtmf: digit_1
+              name: Jump to Reference Main Menu
+              targetMenuRef: ../..
+          # another relative reference, up 3 then find menu item with refId=mainMenu
+          - menuJumpToMenu:
+              dtmf: digit_2
+              name: Jump to Reference MainMain Menu 2
+              targetMenuRef: ../../../menu[referenceTopMenu]
+          # absolute reference from top of flow
+          - menuJumpToMenu:
+              dtmf: digit_3
+              name: Jump to Reference Main Main Menu 3
+              targetMenuRef: /inboundCall/menus/menu[referenceTopMenu]

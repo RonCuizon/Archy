@@ -1,0 +1,31 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+common:
+  menuChoices:
+    - menuTransferToAcd:
+        name: Common Transfer To Queue
+        dtmf: digit_1
+        preTransferAudio:
+          tts: Transferring to the queue now.
+        failureTransferAudio:
+          exp: ToAudioTTS("Sorry, failed to transfer to the queue.")
+        targetQueue:
+          lit:
+            name: < enter queue name here >
+        refId: commonTransferToAcdId
+
+  tasks:
+    - task:
+        name: Common Transfer To Group Task
+        refId: commonTaskId
+        actions:
+          - transferToGroup:
+              name: Transfer To Group from Common File
+              preTransferAudio:
+                tts: Transferring to group now.
+              failureTransferAudio:
+                tts: Sorry, failed to transfer to group
+              targetGroup:
+                lit:
+                  name: < enter group name here >
+              

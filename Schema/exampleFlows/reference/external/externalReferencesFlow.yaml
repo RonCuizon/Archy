@@ -1,0 +1,28 @@
+# This file will be overwritten the next time that `archy setup` is ran.
+# Copy to a new location if you wish to make changes to this YAML.
+
+# This is an example for how you can reference 'external' yaml from a separate file.
+inboundCall:
+  name: External References Flow Example
+  defaultLanguage: en-us
+  description: Inbound Call flow that shows external file references.
+  initialGreeting:
+    tts: Hello, this is the initial greeting.
+  # startUpRef: ./shared.yaml#/common/tasks/task[getSalesForceInfoForCaller]
+  startUpRef: ./menus/menu[mainMenu]
+  menus:    
+    - menu:
+        name: Main Menu
+        refId: mainMenu
+        audio:
+          tts: This is the Main menu. Press 1 to transfer to a queue, press 9 to disconnect.
+        choices:
+        # This shows how to pull in a common 'Transfer to ACD' menu action.
+          - ref: ./commonReferences.yaml#/common/menuChoices/menuTransferToAcd[commonTransferToAcdId]
+          - menuDisconnect:
+              name: Menu Disconnect
+              dtmf: digit_9
+              
+  tasks:
+  # This shows how to pull in a common 'Task'.
+    - ref: ./commonReferences.yaml#/common/tasks/task[commonTaskId]
